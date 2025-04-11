@@ -1,0 +1,136 @@
+<!--
+    Advanced Password Generator
+    Copyright (c) 2025 Mahmoud Ashraf (SNO7E)
+    MIT License - https://github.com/SNO7E-G
+    
+    Using:
+    - HaveIBeenPwned API (https://haveibeenpwned.com/API/v3)
+    - Web Crypto API
+    - Modern ES6+ JavaScript
+    - CSS Variables and Animations
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Password Generator with multiple algorithms, security checks, and modern UI">
+    <meta name="author" content="Mahmoud Ashraf (SNO7E)">
+    <meta name="keywords" content="password generator, security, password strength, haveibeenpwned">
+    <title>Advanced Password Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light theme">🌙</button>
+    </div>
+    <div class="container">
+        <h1>Advanced Password Generator</h1>
+        <div class="instructions">
+            Customize your password using the options below
+        </div>
+        <div class="controls">
+            <div class="algorithm-selector">
+                <label for="algorithm">Generation Algorithm:</label>
+                <select id="algorithm" class="select-style">
+                    <option value="random">Standard Random</option>
+                    <option value="memorable">Memorable Pattern</option>
+                    <option value="pronounceable">Pronounceable</option>
+                    <option value="pattern">Custom Pattern</option>
+                </select>
+            </div>
+
+            <div id="patternInput" class="pattern-input hidden">
+                <label for="customPattern">Pattern (A=uppercase, a=lowercase, #=number, *=symbol):</label>
+                <input type="text" id="customPattern" placeholder="Example: Aa##**" class="input-style">
+            </div>
+
+            <div class="length-control">
+                <label for="length" title="Choose password length between 8 and 32 characters">
+                    Password Length: <span id="lengthValue">16</span>
+                </label>
+                <input type="range" id="length" min="8" max="32" value="16" 
+                    aria-label="Password length" class="slider">
+            </div>
+
+            <div class="checkboxes">
+                <label title="Include uppercase letters (A-Z)">
+                    <input type="checkbox" id="uppercase" checked> 
+                    Include Uppercase
+                </label>
+                <label title="Include lowercase letters (a-z)">
+                    <input type="checkbox" id="lowercase" checked> 
+                    Include Lowercase
+                </label>
+                <label title="Include numbers (0-9)">
+                    <input type="checkbox" id="numbers" checked> 
+                    Include Numbers
+                </label>
+                <label title="Include special characters (!@#$%^&* etc)">
+                    <input type="checkbox" id="symbols">
+                    Include Symbols
+                </label>
+                <label title="Avoid similar characters (1, l, I, 0, O)"></label>
+                    <input type="checkbox" id="excludeSimilar">
+                    Exclude Similar Characters
+                </label>
+            </div>
+
+            <div class="custom-symbols">
+                <label for="customSymbols" title="Add your own special characters">
+                    Custom Symbols:
+                </label>
+                <input type="text" id="customSymbols" 
+                    placeholder="Add your own special characters" 
+                    aria-label="Custom symbols">
+            </div>
+
+            <div class="validation-rules">
+                <h3>Validation Rules</h3>
+                <div id="validationRules" class="rules-list">
+                    <div class="rule" id="lengthRule">✗ 8+ characters</div>
+                    <div class="rule" id="uppercaseRule">✗ Contains uppercase</div>
+                    <div class="rule" id="lowercaseRule">✗ Contains lowercase</div>
+                    <div class="rule" id="numberRule">✗ Contains number</div>
+                    <div class="rule" id="symbolRule">✗ Contains symbol</div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="generate" class="primary-button" title="Generate a new password">
+                    Generate Password
+                </button>
+                <button id="copy" class="secondary-button" title="Copy password to clipboard">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </div>
+
+        <div class="output">
+            <div class="password-display">
+                <input type="text" id="password" readonly 
+                    aria-label="Generated password"
+                    title="Your generated password will appear here">
+                <div id="breachCheck" class="breach-check hidden">
+                    Checking password security...
+                </div>
+            </div>
+            <div class="strength-section">
+                <div class="strength-label">Password Strength:</div>
+                <div class="strength-meter" role="progressbar" aria-label="Password strength">
+                    <div id="strengthBar"></div>
+                </div>
+                <div id="strengthText" aria-live="polite">Not generated</div>
+            </div>
+        </div>
+
+        <div class="password-history">
+            <h2>Recent Passwords</h2>
+            <ul id="historyList" aria-label="Password history"></ul>
+            <button id="clearHistory" class="secondary-button" 
+                title="Clear password history">Clear History</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

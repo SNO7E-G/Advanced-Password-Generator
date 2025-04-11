@@ -1,0 +1,472 @@
+/*
+ * Advanced Password Generator - Styles
+ * Copyright (c) 2025 Mahmoud Ashraf (SNO7E)
+ * MIT License - https://github.com/SNO7E-G
+ *
+ * Features:
+ * - CSS Variables for theming
+ * - Dark/Light mode support
+ * - Responsive design
+ * - Modern animations and transitions
+ * - Accessibility-focused styles
+ * - Mobile-first approach
+ */
+
+:root {
+    --bg-color: #f4f4f9;
+    --container-bg: #fff;
+    --text-color: #333;
+    --border-color: #ccc;
+    --button-bg: #007BFF;
+    --button-hover: #0056b3;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --weak-color: #ff4d4d;
+    --medium-color: #ffa64d;
+    --strong-color: #2ecc71;
+    --valid-color: #2ecc71;
+    --invalid-color: #e74c3c;
+    --warning-color: #f1c40f;
+    --info-color: #3498db;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --container-bg: #2d2d2d;
+    --text-color: #ffffff;
+    --border-color: #444;
+    --button-bg: #0066cc;
+    --button-hover: #0052a3;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    background: var(--container-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.instructions {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#themeToggle {
+    font-size: 1.5rem;
+    padding: 8px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.length-control {
+    margin: 20px 0;
+}
+
+.slider {
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.custom-symbols {
+    margin: 15px 0;
+}
+
+#customSymbols {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--container-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s;
+}
+
+#customSymbols:focus {
+    border-color: var(--button-bg);
+    outline: none;
+}
+
+.checkboxes label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.checkboxes label:hover {
+    background-color: var(--shadow-color);
+}
+
+button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.primary-button {
+    background-color: var(--button-bg);
+}
+
+.secondary-button {
+    background-color: transparent;
+    border: 2px solid var(--button-bg);
+    color: var(--text-color);
+}
+
+.secondary-button:hover {
+    background-color: var(--button-bg);
+    color: white;
+}
+
+.output {
+    margin-top: 20px;
+}
+
+.password-display {
+    margin-bottom: 20px;
+}
+
+#password {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    background: var(--container-bg);
+    color: var(--text-color);
+    font-size: 1.1em;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+#password:focus {
+    border-color: var(--button-bg);
+    outline: none;
+}
+
+.strength-section {
+    text-align: left;
+    margin: 15px 0;
+}
+
+.strength-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.strength-meter {
+    height: 10px;
+    background: var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+#strengthBar {
+    height: 100%;
+    width: 0;
+    transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+#strengthBar.weak { background-color: var(--weak-color); }
+#strengthBar.medium { background-color: var(--medium-color); }
+#strengthBar.strong { background-color: var(--strong-color); }
+
+#strengthText {
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.password-history {
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+#historyList {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#historyList li {
+    padding: 10px;
+    margin: 5px 0;
+    background: var(--bg-color);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Algorithm Selector Styles */
+.algorithm-selector {
+    margin: 15px 0;
+}
+
+.select-style {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--container-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.select-style:hover {
+    border-color: var(--button-bg);
+}
+
+.select-style:focus {
+    outline: none;
+    border-color: var(--button-bg);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Pattern Input Styles */
+.pattern-input {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-color);
+}
+
+.pattern-input.hidden {
+    display: none;
+}
+
+.input-style {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--container-bg);
+    color: var(--text-color);
+}
+
+/* Validation Rules Styles */
+.validation-rules {
+    margin: 20px 0;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-color);
+}
+
+.rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rule {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px;
+    border-radius: 4px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.rule.valid {
+    color: var(--valid-color);
+}
+
+.rule.invalid {
+    color: var(--invalid-color);
+}
+
+/* Breach Check Styles */
+.breach-check {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.breach-check.hidden {
+    display: none;
+}
+
+.breach-check.checking {
+    background: var(--info-color);
+    color: white;
+}
+
+.breach-check.safe {
+    background: var(--valid-color);
+    color: white;
+}
+
+.breach-check.warning {
+    background: var(--warning-color);
+    color: white;
+}
+
+.breach-check.danger {
+    background: var(--invalid-color);
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
+.clicked {
+    animation: buttonClick 0.3s ease;
+}
+
+/* Enhanced Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes slideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pulse {
+    animation: pulse 0.3s ease-in-out;
+}
+
+.shake {
+    animation: shake 0.3s ease-in-out;
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Loading Indicator */
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: var(--text-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

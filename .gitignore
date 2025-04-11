@@ -1,0 +1,99 @@
+# Dependencies
+node_modules/
+bower_components/
+jspm_packages/
+package-lock.json
+yarn.lock
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+*.pem
+
+# Debug logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Editor and IDE files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Build and dist directories
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist
+.temp/
+.cache/
+
+# Testing
+coverage/
+.nyc_output/
+.jest/
+__tests__/
+__snapshots__/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+temp/
+
+# Miscellaneous
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+.vercel
+.netlify
+*.bak
+*~
+
+# OS-specific
+## Windows
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+
+## macOS
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+## Linux
+*~
+.directory
+.fuse_hidden*
+.Trash-*
