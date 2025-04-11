@@ -23,10 +23,6 @@ A sophisticated password generator with multiple algorithms, security checks, an
   - Visual feedback animations
   - Mobile-responsive design
 
-## 🚀 Live Demo
-
-[View Live Demo](https://sno7e-g.github.io/advanced-password-generator/)
-
 ## 🛠️ Technologies Used
 
 - HTML5
